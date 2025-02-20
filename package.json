@@ -1,0 +1,23 @@
+{
+  "name": "miku",
+  "description": "Miku are your best friend!",
+  "version": "0.1.8",
+  "main": "./miku/Miku",
+  "types": "./miku/miku.d.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "index": "bun run ./index.ts",
+    "build": "bun build --compile --target=bun-linux-x64 ./index.ts  --outfile ./dist/miku",
+    "build-win": "bun build --compile --target=bun-windows-x64 ./build/index.ts --outfile ./dist/miku-win",
+    "build-linux": "bun build --compile --target=bun-linux-x64 ./build/index.ts --outfile ./dist/miku-linux",
+    "doc": "npx typedoc --entryPointStrategy Expand miku",
+    "types": "rm -f miku/miku.d.ts && tsc miku/**/*.ts --declaration --emitDeclarationOnly --outFile ./miku/miku"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.7.3"
+  }
+}
