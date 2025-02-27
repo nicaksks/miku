@@ -1,4 +1,3 @@
-import type { Options } from "@miku/types/Miku";
 import type { ChannelStructure, ChannelOptions, ChannelResponse, InviteStructure, InviteResponse, ChannelDeleteResponse } from "@miku/types/Channel";
 import Client from "./Client";
 import Miku from "@miku";
@@ -8,9 +7,7 @@ import Permissions from "./Permissions";
 
 export default class Channel extends Client {
 
-    public constructor(protected readonly opts: Options) {
-        super(opts)
-    }
+    public constructor() { super(Miku.opts) }
 
     public async create({ type = ChannelType.VOICE, ...channel }: ChannelOptions): Promise<ChannelResponse> {
 

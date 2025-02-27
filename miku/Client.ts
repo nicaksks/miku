@@ -5,16 +5,16 @@ import { rest } from "./utils/constants";
 
 export default abstract class Client {
 
-    private token: string;
+    private readonly token: string;
     private readonly url: string;
 
-    protected constructor(protected readonly opts: Options) {
-        this.token =  opts?.token.replace('Bot', '').replace('Bearer', '').trim();
-        this.url = opts?.url ?? 'Miku'
+    protected constructor(private readonly opts: Options) {
+        this.token = this.opts?.token?.replace('Bot', '').replace('Bearer', '').trim();
+        this.url = this.opts?.url ?? 'Hatsune Mikus'
     }
 
     protected async instance<const T>({ method, endpoint, body }: Instance): Promise<T> {
-        
+
         const response = await fetch(`${rest.api}/v${rest.version}/${endpoint}`, {
             method,
             headers: {

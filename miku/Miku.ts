@@ -18,6 +18,6 @@ export default class Miku {
     }
 
     public get channel(): Channel {
-        return new Channel(Miku.options)
+        return new Channel()
     }
 }
