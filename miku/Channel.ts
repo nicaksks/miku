@@ -16,7 +16,7 @@ export default class Channel extends Client {
 
         const response = await this.instance<ChannelStructure>({
             method: 'POST',
-            endpoint: `guilds/${Miku.guild_id}/channels`,
+            endpoint: `guilds/${Miku.opts.guild_id}/channels`,
             body: {
                 ...channel,
                 type,

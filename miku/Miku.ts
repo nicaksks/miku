@@ -10,11 +10,7 @@ export default class Miku {
         if(!this.opts.token) throw new MikuError({ code: 40001, type: 'Authentication', message: 'Authentication failed', error_details: 'Unauthorized. Provide a valid token and try again'})
         Miku.options = this.opts
     }
-
-    public static get guild_id(): string {
-        return this.options.guild_id
-    }
-
+    
     public static get opts(): Options {
         return this.options
     }
