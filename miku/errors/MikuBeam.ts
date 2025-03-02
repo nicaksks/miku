@@ -9,6 +9,6 @@ export default class MikuBeam {
             throw new MikuError({ code, type: 'Discord', message, error_details: data?.errors })
         }
 
-        throw new MikuError({ code: 500, type: 'Miku', message: 'unknown', error_details: data })
+        throw new MikuError({ code: 500, type: 'Miku', message: 'unknown', error_details: JSON.stringify(data) })
     }
 }
