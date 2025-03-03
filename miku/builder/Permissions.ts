@@ -18,17 +18,17 @@ export default class PermissionsBuilder {
     }
 
     public allow(allow: Array<PermissionsBitField>): this {
-        this.permissions.allow = this.sum(allow);
+        this.permissions.allow = this.sum(allow ?? []);
         return this;
     }
 
     public deny(deny: Array<PermissionsBitField>): this {
-        this.permissions.deny = this.sum(deny);
+        this.permissions.deny = this.sum(deny ?? []);
         return this;
     }
 
     public deny_everyone(): this {
-        this.users.push({ id: Miku.guild_id, type: PermissionType.Role, allow: 0, deny: this.permissions.allow })
+        this.users.push({ id: Miku.opts.guild_id, type: PermissionType.Role, allow: 0, deny: this.permissions.allow })
         return this;
     }
 

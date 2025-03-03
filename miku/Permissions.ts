@@ -5,7 +5,7 @@ import type { ChannelPermissions, PermissionOverWrites, Snowflake } from "@miku/
 export default class Permissions {
 
     public static set(users: Array<Snowflake>, permission_overwrites?: PermissionOverWrites): Array<ChannelPermissions> {
-        
+
         if (!users?.length) return [];
 
         const isChannelPermissions = permission_overwrites as Array<ChannelPermissions>;
@@ -14,10 +14,10 @@ export default class Permissions {
             return permission_overwrites.data
         };
 
-        if (typeof isChannelPermissions.at(0) === 'object') {
+        if (typeof isChannelPermissions?.at(0) === 'object') {
             return this.isChannelPermissions(users, isChannelPermissions)
         };
-
+        
         return new PermissionsBuilder(users)
             .allow(permission_overwrites as Array<PermissionsBitField>)
             .deny_everyone()
