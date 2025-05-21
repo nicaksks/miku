@@ -1,5 +1,5 @@
-# 丫 (๑°Miku°๑)丫 .ᐟ.ᐟ »-v0.1.7→
-╰ `Miku` é uma biblioteca que usa a REST API do Discord para realizar alguma ações como: `Criar canal de Texto ou Enviar Webhook`.
+# 丫 (๑°Miku°๑)丫 .ᐟ.ᐟ »-v0.1.8→
+╰ `Miku` é uma biblioteca que usa a REST API do Discord para realizar alguma ações como: `Criar canal de Texto e Enviar Webhook`.
 
 <img src="./docs/media/miku.gif" width="1000">
 
