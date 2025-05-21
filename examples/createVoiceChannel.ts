@@ -1,11 +1,10 @@
 import Miku from "@miku";
-import { ChannelType } from "@miku/enum";
+import { ChannelType } from "@miku/enum/Channel";
 import MikuError from "@miku/errors/MikuError";
 
 const miku = new Miku({
     token: '<TOKEN>',
-    guild_id: '<GUILD_ID>',
-    url: '<YOUR_WEBSITE_URL>'
+    guild_id: '<GUILD_ID>'
 })
 
 try {

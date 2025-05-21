@@ -28,7 +28,7 @@
     "noPropertyAccessFromIndexSignature": false,
     "paths": {
       "@miku": ["./miku/Miku"],
-      "@miku/enum": ["./miku/enum/Channel"],
+      "@miku/enum/*": ["./miku/enum/*"],
       "@miku/types/*": ["./miku/types/*"],
       "@miku/errors/*": ["./miku/errors/*"],
       "@miku/constants": ["./miku/utils/constants"],

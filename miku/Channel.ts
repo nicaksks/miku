@@ -1,7 +1,7 @@
 import type { ChannelStructure, ChannelOptions, ChannelResponse, InviteStructure, InviteResponse, ChannelDeleteResponse } from "@miku/types/Channel";
 import Client from "./Client";
 import Miku from "@miku";
-import { ChannelType } from "@miku/enum";
+import { ChannelType } from "@miku/enum/Channel";
 import { discord } from "@miku/constants";
 import Permissions from "./Permissions";
 

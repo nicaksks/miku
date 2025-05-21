@@ -1,4 +1,4 @@
-import type { PermissionsBitField, PermissionType } from "@miku/enum";
+import type { PermissionsBitField, PermissionType } from "@miku/enum/Channel";
 import type { Guild } from "./Guild";
 import type { User } from "./User";
 import type { Channel } from "./Body";

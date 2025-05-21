@@ -1,11 +1,10 @@
 import Miku from "@miku";
 import PermissionsBuilder from "@miku/builder/Permissions";
-import { ChannelType, PermissionsBitField, PermissionType } from "@miku/enum";
+import { ChannelType, PermissionsBitField, PermissionType } from "@miku/enum/Channel";
 
 const miku = new Miku({
     token: '<TOKEN>',
-    guild_id: '<GUILD_ID>',
-    url: '<YOUR_WEBSITE_URL>'
+    guild_id: '<GUILD_ID>'
 })
 
 const users = ['123', '321']

@@ -1,7 +1,7 @@
 {
   "name": "miku",
   "description": "Miku are your best friend!",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "main": "./miku/Miku",
   "types": "./miku/miku.d.ts",
   "type": "module",

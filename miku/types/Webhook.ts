@@ -1,12 +1,16 @@
 import type EmbedBuilder from "@miku/builder/Embed";
 import type { User } from "./User";
 import type { Embed } from "./Embed";
+import type { Button } from "./Button";
+import type ButtonBuilder from "@miku/builder/Button";
 
 export type Webhook = {
     username?: string;
     avatar_url?: string;
-    content: string;
+    content?: string;
     embeds?: Array<EmbedBuilder | Embed>;
+    flags?: 32768,
+    components?: Array<ButtonBuilder | Button>;
 };
 
 export type WebhookSettings = {

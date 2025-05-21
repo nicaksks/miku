@@ -1,4 +1,4 @@
-import { PermissionsBitField, PermissionType } from "@miku/enum";
+import { PermissionsBitField, PermissionType } from "@miku/enum/Channel";
 import PermissionsBuilder from "@miku/builder/Permissions";
 import type { ChannelPermissions, PermissionOverWrites, Snowflake } from "@miku/types/Channel";
 

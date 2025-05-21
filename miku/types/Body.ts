@@ -1,4 +1,4 @@
-import type { ChannelType } from "@miku/enum";
+import type { ChannelType } from "@miku/enum/Channel";
 import type { PermissionOverWrites, Snowflake } from "./Channel";
 
 export type Channel = {
