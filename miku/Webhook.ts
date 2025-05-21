@@ -28,37 +28,26 @@ export default class Webhook extends Client {
     }
 
     private components(components?: Array<ButtonBuilder | Button>): Array<any> {
-
-        if (!components) return []
-
-        const buttons: Array<Button> = [{ type: ComponentType.ActionRow, components: [] }]
-
-        for (const button of components) {
-
-            if (button instanceof ButtonBuilder) {
-                buttons[0].components.push(button.data)
-                continue
-            }
-
-            buttons[0].components.push(button)
-
-        }
-
-        return buttons
+        return [{
+            type: ComponentType.ActionRow,
+            components: components?.map(button => button instanceof ButtonBuilder ? button.data : button)
+        }]
     }
 
     public async send(body: WebhookOptions): Promise<WebhookResponse> {
         body.embeds = this.embeds(body.embeds)
+        body.components = this.components(body.components)
 
         let endpoint = `webhooks/${this._id}/${this._token}?wait=true`
 
-        body.components = this.components(body.components)
         if (body.components.length > 0) {
             delete body.embeds
             delete body.content
             body.flags = 32768
             endpoint += '&with_components=true'
         }
+
+        console.log(body.components[0])
 
         return this.instance<WebhookResponse>({
             method: 'POST', endpoint, body
