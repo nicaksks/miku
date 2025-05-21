@@ -28,7 +28,7 @@ export default abstract class Client {
         const data: T = await response.json()
 
         if (!response.ok) {
-            new MikuBeam(data);
+            throw new MikuBeam(data);
         }
 
         return data
