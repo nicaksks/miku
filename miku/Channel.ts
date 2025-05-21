@@ -37,11 +37,11 @@ export default class Channel extends Client {
 
     private name(channel_name?: string): string {
         if (!channel_name) return 'miku-'.concat(Math.floor(Math.random() * 100).toString());
-        return channel_name.length > 100 ? channel_name.substring(0, 100) : channel_name;
+        return channel_name.substring(0, 100);
     }
 
     public async delete(id: string): Promise<ChannelDeleteResponse> {
-        return await this.instance<ChannelDeleteResponse>({ method: 'DELETE', endpoint: 'channels/'.concat(id) })
+        return this.instance<ChannelDeleteResponse>({ method: 'DELETE', endpoint: 'channels/'.concat(id) })
     }
 
     private async invite(channel_id: string, max_uses: number): Promise<InviteResponse> {

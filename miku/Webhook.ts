@@ -21,6 +21,6 @@ export default class Webhook extends Client {
 
     public async send(body: WebhookOptions): Promise<WebhookResponse> {
         body.embeds = body.embeds?.map(embed => embed instanceof EmbedBuilder ? embed.data : embed);
-        return await this.instance<WebhookResponse>({ method: 'POST', endpoint: `webhooks/${this._id}/${this._token}?wait=true`, body })
+        return this.instance<WebhookResponse>({ method: 'POST', endpoint: `webhooks/${this._id}/${this._token}?wait=true`, body })
     }
 }
