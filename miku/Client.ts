@@ -10,7 +10,7 @@ export default abstract class Client {
 
     protected constructor(private readonly opts: Options) {
         this.token = this.opts?.token?.replace('Bot', '').replace('Bearer', '').trim();
-        this.url = this.opts?.url ?? 'Hatsune Mikus'
+        this.url = this.opts?.url ?? 'Hatsune Miku'
     }
 
     protected async instance<const T>({ method, endpoint, body }: Instance): Promise<T> {
