@@ -4,13 +4,12 @@ import { ChannelType, PermissionsBitField, PermissionType } from "@miku/enum";
 
 const miku = new Miku({
     token: '<TOKEN>',
-    guild_id: '<GUILD_ID>',
-    url: '<YOUR_WEBSITE_URL>'
+    guild_id: '<GUILD_ID>'
 })
 
 const users = ['123', '321']
 
-//Instanciar a classe PermissionsBuilder te permite adicionar, remover permissões e adicionar o tipo de permissão;
+//Instancia a classe PermissionsBuilder te permite adicionar, remover permissões e adicionar o tipo de permissão;
 //deny_everyone() - Vai pegar as permissões que foram passadas em Allow e vai remover para todos os outros usuários que não foram passado no constructor.
 const perm = new PermissionsBuilder(users)
     .allow([PermissionsBitField.CONNECT, PermissionsBitField.SPEAK, PermissionsBitField.STREAM, PermissionsBitField.VIEW_CHANNEL])

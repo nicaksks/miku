@@ -12,9 +12,8 @@ declare module "utils/constants" {
 declare module "Client" {
     import type { Instance, Options } from "types/Miku";
     export default abstract class Client {
-        protected readonly opts: Options;
-        private token;
-        private readonly url;
+        private readonly opts;
+        private readonly token;
         protected constructor(opts: Options);
         protected instance<const T>({ method, endpoint, body }: Instance): Promise<T>;
     }
@@ -28,12 +27,10 @@ declare module "Permissions" {
     }
 }
 declare module "Channel" {
-    import type { Options } from "types/Miku";
     import type { ChannelOptions, ChannelResponse, ChannelDeleteResponse } from "types/Channel";
     import Client from "Client";
     export default class Channel extends Client {
-        protected readonly opts: Options;
-        constructor(opts: Options);
+        constructor();
         create({ type, ...channel }: ChannelOptions): Promise<ChannelResponse>;
         private name;
         delete(id: string): Promise<ChannelDeleteResponse>;
@@ -44,9 +41,9 @@ declare module "Miku" {
     import type { Options } from "types/Miku";
     import Channel from "Channel";
     export default class Miku {
+        private readonly opts;
         private static options;
         constructor(opts: Options);
-        static get guild_id(): string;
         static get opts(): Options;
         get channel(): Channel;
     }
@@ -62,6 +59,7 @@ declare module "Webhook" {
         private readonly _id;
         private readonly _token;
         constructor({ id, token }: WebhookSettings);
+        private embeds;
         send(body: WebhookOptions): Promise<WebhookResponse>;
     }
 }
@@ -257,20 +255,27 @@ declare module "types/Miku" {
 declare module "errors/MikuError" {
     interface CustomError {
         readonly code: number;
-        readonly type: string;
+        readonly type: Errors | string;
         readonly message: string;
-        readonly error_details?: string | Array<string> | null;
+        readonly errors?: Errors | string | any;
+    }
+    interface Errors {
+        _errors: Array<{
+            code: string;
+            message: string;
+        }>;
     }
     export default class MikuError extends Error implements CustomError {
         readonly code: number;
-        readonly type: string;
-        readonly error_details?: string | Array<string> | null;
-        constructor({ code, type, message, error_details }: CustomError);
+        readonly type: Errors | string;
+        readonly errors?: any;
+        constructor({ code, type, message, errors }: CustomError);
     }
 }
 declare module "errors/MikuBeam" {
-    export default class MikuBeam {
-        private readonly data;
+    import MikuError from "errors/MikuError";
+    export default class MikuBeam extends MikuError {
+        private data;
         constructor(data: any);
     }
 }

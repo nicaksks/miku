@@ -5,13 +5,13 @@ import EmbedBuilder from "@miku/builder/Embed";
 const webhook = new Webhook({ id: '<WEBHOOK-ID>', token: '<WEBHOOK-TOKEN>' })
 
 const embed = new EmbedBuilder()
-    .setTitle('Vida')
+    .setTitle('Hello, Hastune Miku')
     .setDescription('21321312312')
     .setFields([
-        { name: "nica", value: "123" },
-        { name: "nica", value: "123" }
+        { name: "Hatsune", value: "Miku" },
+        { name: "Hatsune", value: "Miku" }
     ])
-    .setFooter({ text: `ola` })
+    .setFooter({ text: `Olá!` })
     .setColor(0x00FFFF);
 
 try {

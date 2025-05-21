@@ -6,11 +6,9 @@ import { rest } from "./utils/constants";
 export default abstract class Client {
 
     private readonly token: string;
-    private readonly url: string;
 
     protected constructor(private readonly opts: Options) {
         this.token = this.opts?.token?.replace('Bot', '').replace('Bearer', '').trim();
-        this.url = this.opts?.url ?? 'Hatsune Miku'
     }
 
     protected async instance<const T>({ method, endpoint, body }: Instance): Promise<T> {
@@ -18,7 +16,7 @@ export default abstract class Client {
         const response = await fetch(`${rest.api}/v${rest.version}/${endpoint}`, {
             method,
             headers: {
-                'User-Agent': `DiscordBot (${this.url}, ${version})`,
+                'User-Agent': `DiscordBot (Hatsune Miku, ${version})`,
                 'Content-Type': 'application/json',
                 'Authorization': `Bot ${this.token}`
             },
