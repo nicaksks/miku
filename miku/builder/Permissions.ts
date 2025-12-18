@@ -18,12 +18,12 @@ export default class PermissionsBuilder {
     }
 
     public allow(allow: Array<PermissionsBitField>): this {
-        this.permissions.allow = this.sum(allow ?? []);
+        this.permissions.allow = this.sum(allow);
         return this;
     }
 
     public deny(deny: Array<PermissionsBitField>): this {
-        this.permissions.deny = this.sum(deny ?? []);
+        this.permissions.deny = this.sum(deny);
         return this;
     }
 
